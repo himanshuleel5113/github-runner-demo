@@ -1,0 +1,24 @@
+name: GitHub Hosted Runner Demo
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-python-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Show runner operating system
+        run: uname -a
+
+      - name: Check Python version
+        run: python3 --version
+
+      - name: Run Python file
+        run: python3 app.py
